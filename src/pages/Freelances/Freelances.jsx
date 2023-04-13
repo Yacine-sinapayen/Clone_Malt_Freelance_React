@@ -39,7 +39,7 @@ const PageTitle = styled.h1`
 `;
 
 const PageSubtitle = styled.h2`
-     font-size: 20px;
+     font-size: 25px;
      color: ${colors.secondary};
      font-wheight: 300;
      text-align: center;
