@@ -8,42 +8,38 @@ import Error from './components/Error/index.jsx';
 import Results from './pages/Results/Results.jsx';
 import Freelances from './pages/Freelances/Freelances.jsx';
 
-import { createGlobalStyle } from 'styled-components';
-
-// Style global
-const GlobalStyle = createGlobalStyle`
-    * {
-        font-family: 'Trebuchet MS', Helvetica, sans-serif;
-    }
-
-    body{
-     margin:0;
-    }
-`;
+import { ThemeProvider, SurveyProvider } from './utils/Context/Context.jsx';
+import GlobalStyle from './utils/style/GlobalStyle.jsx';
+import Footer from './components/Footer/Footer.jsx';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
      <React.StrictMode>
           <Router>
-               <GlobalStyle />
-               <Header />
-               <Switch>
-                    <Route exact path="/">
-                         <Home />
-                    </Route>
-                    <Route path="/survey/:questionNumber">
-                         <Survey />
-                    </Route>
-                    <Route path="/results">
-                         <Results />
-                    </Route>
-                    <Route path="/freelances">
-                         <Freelances />
-                    </Route>
-                    <Route>
-                         <Error />
-                    </Route>
-               </Switch>
+               <ThemeProvider>
+                    <SurveyProvider>
+                         <GlobalStyle />
+                         <Header />
+                         <Switch>
+                              <Route exact path="/">
+                                   <Home />
+                              </Route>
+                              <Route path="/survey/:questionNumber">
+                                   <Survey />
+                              </Route>
+                              <Route path="/results">
+                                   <Results />
+                              </Route>
+                              <Route path="/freelances">
+                                   <Freelances />
+                              </Route>
+                              <Route>
+                                   <Error />
+                              </Route>
+                         </Switch>
+                         <Footer />
+                    </SurveyProvider>
+               </ThemeProvider>
           </Router>
      </React.StrictMode>
 );

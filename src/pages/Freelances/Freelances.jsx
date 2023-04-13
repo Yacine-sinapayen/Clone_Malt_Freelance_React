@@ -1,4 +1,3 @@
-import DefaultPicture from '../../assets/profile.png';
 import Card from '../../components/Card/Card';
 import styled from 'styled-components';
 import colors from '../../utils/style/colors';
@@ -27,6 +26,14 @@ const PageSubtitle = styled.h2`
      font-wheight: 300;
      text-align: center;
      padding-bottom: 30px;
+`;
+
+const WrapperLoader = styled.div`
+     display: flex;
+     width: 100%;
+     height: 100%;
+     justify-content: center;
+     align-items: center;
 `;
 
 function Freelances() {
@@ -65,7 +72,9 @@ function Freelances() {
                     Chez Shiny nous réunissons les meilleurs profil pour vous.
                </PageSubtitle>
                {isDataLoading ? (
-                    <Loader />
+                    <WrapperLoader>
+                         <Loader />
+                    </WrapperLoader>
                ) : (
                     <CardsContainer>
                          {freelancersList.map((profile, index) => (
