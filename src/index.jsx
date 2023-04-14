@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import Home from './pages/Home/Home.jsx';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Survey from './pages/Survey.jsx';
+import Survey from './pages/Survey/Survey.jsx';
 import Header from './components/Header/Header.jsx';
 import Error from './components/Error/index.jsx';
 import Results from './pages/Results/Results.jsx';
