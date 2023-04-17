@@ -57,7 +57,7 @@ const LoaderWrapper = styled.div`
 1 - je récupère l'objet 'answers
 2 - Ensuite j'itère dessus avec un reduce qui va passer sur les clès de notre objet. En params je récupère le string pécédente (previousParams) et le numéro de la réponse :
      2.a - S'il s'ajit de la première réponse on rajoute un espace sinon on rajoute un '&' */
-function formatFetchParams(answers) {
+export function formatQueryParams(answers) {
      // 1
      const answerNumbers = Object.keys(answers);
      // 2
@@ -70,10 +70,19 @@ function formatFetchParams(answers) {
      }, '');
 }
 
-function Results() {
-     const { theme } = useTheme();
+export function formatJobList(title, listLength, index) {
+     if (index === listLength - 1) {
+       return title
+     } else {
+       return `${title},`
+     }
+   }
+
+function Results ()  {
      const { answers } = useContext(SurveyContext);
-     const fetchParams = formatFetchParams(answers);
+     const fetchParams = formatQueryParams(answers);
+     const { theme } = useTheme();
+     console.log(fetchParams);
 
      /* Le hook custum 'useFetch' me permet de faire l'appel à l'api et fetchParams correspond à mes réponses.*/
      const { data, isLoading, error } = useFetch(
@@ -102,8 +111,11 @@ function Results() {
                                    key={`result-title-${index}-${result.title}`}
                                    theme={theme}
                               >
-                                   {result.title}
-                                   {index === resultsData.length - 1 ? '' : ','}
+                                   {formatJobList(
+                                        result.title,
+                                        resultsData.length,
+                                        index
+                                   )}
                               </JobTitle>
                          ))}
                </ResultsTitle>

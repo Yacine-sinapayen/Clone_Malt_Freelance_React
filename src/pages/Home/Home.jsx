@@ -36,10 +36,15 @@ const StyledTitle = styled.h2`
 const Illustration = styled.img`
      flex: 1;
 `;
+
+export function sum(a, b){
+     return a + b;
+}
 function Home() {
      return (
           <HomeWrapper>
                <HomeContainer>
+               {sum(40, 2)}
                     <LeftCol>
                          <StyledTitle>
                               Repérez vos besoins, on s’occupe du reste, avec
