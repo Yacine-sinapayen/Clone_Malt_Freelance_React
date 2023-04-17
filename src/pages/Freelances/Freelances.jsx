@@ -76,21 +76,19 @@ function Freelances() {
      const freelancersList = data?.freelancersList;
 
 
-
-
      if (error) {
           return <span>Oups il y a eu un problème</span>;
      }
 
      return (
           <div>
-               <PageTitle>Trouvez votre prestataire</PageTitle>
-               <PageSubtitle>
+               <PageTitle theme={theme}>Trouvez votre prestataire</PageTitle>
+               <PageSubtitle theme={theme}>
                     Chez Shiny nous réunissons les meilleurs profil pour vous.
                </PageSubtitle>
                {isLoading ? (
                     <WrapperLoader>
-                         <Loader />
+                         <Loader theme={theme} />
                     </WrapperLoader>
                ) : (
                     <CardsContainer>
