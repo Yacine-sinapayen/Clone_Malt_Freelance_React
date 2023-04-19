@@ -3,7 +3,7 @@ import { SurveyContext } from '../../utils/Context/Context';
 import { useFetch, useTheme } from '../../utils/Hook/Hooks';
 import { StyledLink, Loader } from '../../utils/style/Atoms';
 import { ResultsContainer, ResultsTitle, DescriptionWrapper, JobTitle, JobDescription, LoaderWrapper } from './resultsStyle';
-
+import EmptyList from '../../components/EmptyList/EmptyList';
 
 /* Cette fonction va récupérer la réponse renvoyer par l'api et va la formater afin de l'afficher comme nous le souhaitons :
 1 - je récupère l'objet 'answers
@@ -48,6 +48,10 @@ function Results() {
      }
 
      const resultsData = data?.resultsData;
+
+     if (resultsData?.length < 1) {
+          return <EmptyList theme={theme} />
+        }
 
      return isLoading ? (
           <LoaderWrapper>
