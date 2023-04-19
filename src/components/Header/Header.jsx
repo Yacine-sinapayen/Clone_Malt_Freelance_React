@@ -1,18 +1,8 @@
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
 import { StyledLink } from '../../utils/style/Atoms';
 import DarkLogo from '../../assets/dark-logo.png';
+import { HomeLogo, NavContainer} from './headerStyle.jsx';
 
-const HomeLogo = styled.img`
-     height: 70px;
-`;
-
-const NavContainer = styled.nav`
-     padding: 30px;
-     display: flex;
-     justify-content: space-between;
-     align-items: center;
-`;
 
 function Header() {
      return (
