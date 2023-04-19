@@ -1,4 +1,9 @@
 import { formatJobList, formatQueryParams } from './Results.jsx';
+import { rest } from 'msw';
+import { setupServer } from 'msw/node';
+import { waitForElementToBeRemoved, screen } from '@testing-library/react';
+import { render } from '../../utils/test/index.js';
+import Results from '../Results/Results.jsx';
 
 describe('La fonction formatJobList', () => {
      test('ajoute une virgule à un item', () => {
@@ -25,5 +30,51 @@ describe('The formatQueryParams function', () => {
           expect(formatQueryParams({ 1: 'answer1', 2: 'answer2' })).toEqual(
                expectedState
           );
+     });
+});
+
+/* ---------- Test call API (cf exemple freealnces.test.js ---------- */
+const resultsMockedData = [
+     {
+          title: 'seo',
+          description: `Le SEO est en charge du référencement web d'une page`,
+     },
+     {
+          title: 'frontend',
+          description: `Le développeur ou la développeuse frontend se charge de l'interface : interactions avec l'utilisateur, style, etc.`,
+     },
+];
+
+/* 
+1 - Je met en place ma const 'server' qui va intercepter l'appel à l'api. 
+
+2 - je défini le comportement de mon server avant les event, après chaque event, après tout les event.
+
+*/
+
+const server = setupServer(
+     rest.get('http://localhost:8000/results', (req, res, ctx) => {
+          return res(ctx.json({ resultsData: resultsMockedData }));
+     })
+);
+
+// 2
+beforeAll(() => server.listen());
+afterEach(() => server.resetHandlers());
+afterAll(() => server.close());
+
+describe('The Results component', () => {
+     test('should display the results after the data is loaded', async () => {
+          render(<Results />);
+          await waitForElementToBeRemoved(() => screen.getByTestId('loader'));
+          const jobTitleElements = screen.getAllByTestId('job-title');
+          expect(jobTitleElements[0].textContent).toBe('seo');
+          expect(jobTitleElements.length).toBe(2);
+          const jobDescriptionElements =
+               screen.getAllByTestId('job-description');
+          expect(jobDescriptionElements[1].textContent).toBe(
+               resultsMockedData[1].description
+          );
+          expect(jobDescriptionElements.length).toBe(2);
      });
 });

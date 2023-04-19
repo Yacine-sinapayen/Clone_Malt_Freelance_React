@@ -38,10 +38,6 @@ const WrapperLoader = styled.div`
      align-items: center;
 `;
 
-export function sum(a, b){
-     return a + b;
-}
-
 function Freelances() {
      // Ancienne version pour récupérer mes données.
      // const [isDataLoading, setDataLoading] = useState(false);
@@ -79,9 +75,8 @@ function Freelances() {
      // Ici le "?" permet de s'assurer que data existe bien.
      const freelancersList = data?.freelancersList;
 
-
      if (error) {
-          return <span>Oups il y a eu un problème</span>;
+          return <span data-testid="error">{error}</span>;
      }
 
      return (
@@ -92,7 +87,7 @@ function Freelances() {
                </PageSubtitle>
                {isLoading ? (
                     <WrapperLoader>
-                         <Loader theme={theme} />
+                         <Loader theme={theme} data-testid="loader" />
                     </WrapperLoader>
                ) : (
                     <CardsContainer>
