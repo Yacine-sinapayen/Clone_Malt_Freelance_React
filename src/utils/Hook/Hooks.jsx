@@ -30,7 +30,7 @@ export function useFetch(url) {
                }
           }
           fetchData();
-     }, [url]);
+     }, [url, error]);
 
      return { isLoading, data, error };
 }

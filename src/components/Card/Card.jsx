@@ -9,16 +9,19 @@ import { CardLabel, CardTitle, CardImage, CardWrapper } from './cardStyle.jsx';
 
 function Card({ label, title, picture }) {
      const { theme } = useTheme();
-     const [isFavorite, setIsFavorite] = useState(false);
-     const star = isFavorite ? '⭐️' : '';
+     // const [isFavorite, setIsFavorite] = useState(false);
+     // const star = isFavorite ? '⭐️' : '';
      return (
-          <CardWrapper theme={theme} onClick={() => setIsFavorite(!isFavorite)}>
+          <CardWrapper
+               theme={theme}
+               // onClick={() => setIsFavorite(!isFavorite)}
+          >
                <CardLabel theme={theme}>{label}</CardLabel>
                <CardImage src={picture} alt="freelance" />
                <CardTitle data-testid="cardTitle" theme={theme}>
-                    {star}
+                    {/* {star} */}
                     {title}
-                    {star}
+                    {/* {star} */}
                </CardTitle>
           </CardWrapper>
      );

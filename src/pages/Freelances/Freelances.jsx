@@ -1,9 +1,13 @@
 import Card from '../../components/Card/Card';
 import { Loader } from '../../utils/style/Atoms';
 import { useFetch, useTheme } from '../../utils/Hook/Hooks';
-import { CardsContainer, PageTitle, PageSubtitle, WrapperLoader } from './freelanceStyle';
-
-
+import {
+     CardsContainer,
+     PageTitle,
+     PageSubtitle,
+     WrapperLoader,
+} from './freelanceStyle';
+import { Link } from 'react-router-dom';
 
 function Freelances() {
      // Ancienne version pour récupérer mes données.
@@ -59,12 +63,17 @@ function Freelances() {
                ) : (
                     <CardsContainer>
                          {freelancersList.map((profile, index) => (
-                              <Card
-                                   key={`${profile.name}-${index}`}
-                                   label={profile.jobTitle}
-                                   picture={profile.picture}
-                                   title={profile.name}
-                              />
+                              <Link
+                                   key={`freelance-${profile.id}`}
+                                   to={`/profile/${profile.id}`}
+                              >
+                                   <Card
+                                        key={`${profile.name}-${index}`}
+                                        label={profile.jobTitle}
+                                        picture={profile.picture}
+                                        title={profile.name}
+                                   />
+                              </Link>
                          ))}
                     </CardsContainer>
                )}
