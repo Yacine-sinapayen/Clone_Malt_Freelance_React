@@ -35,10 +35,10 @@ function Freelances() {
      //      fetchFreelances();
      // }, []);
 
-     // 1 - Je récupère 'theme' depuis le 'context et useTheme dans mon fichier 'hooks' dans mon dossier 'utils'
+     // 1 - Je récupère 'theme' depuis le 'context' et 'useTheme' dans mon fichier 'hooks' depuis mon dossier 'utils'.
      const { theme } = useTheme();
 
-     // J'utilise mon hook useFetch pour récupérer les données.
+     // J'utilise mon hook 'useFetch' pour récupérer les données.
      const { data, isLoading, error } = useFetch(
           `http://localhost:8000/freelances`
      );

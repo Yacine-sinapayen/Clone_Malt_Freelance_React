@@ -12,7 +12,7 @@ function Header() {
                </Link>
                <div>
                     <StyledLink to="/"> Accueil </StyledLink>
-                    {/* $isFullLink est une props définis plud haut qui permet de styliser un de mes liens  */}
+                    {/* $isFullLink est une props définie plus haut qui permet de styliser un de mes liens  */}
                     <StyledLink to="/survey/1" $isFullLink>
                          Faire le test
                     </StyledLink>

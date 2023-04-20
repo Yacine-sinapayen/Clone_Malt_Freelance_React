@@ -1,10 +1,9 @@
 import PropTypes from 'prop-types';
 import DefaultPicture from '../../assets/profile.png';
-import { useState } from 'react';
 import { useTheme } from '../../utils/Hook/Hooks';
 import { CardLabel, CardTitle, CardImage, CardWrapper } from './cardStyle.jsx';
 
-// ancienne logique avec les composants classe
+// Ancienne logique avec les 'componant class'
 // import { Component } from 'react';
 
 function Card({ label, title, picture }) {
@@ -27,7 +26,7 @@ function Card({ label, title, picture }) {
      );
 }
 
-// ancienne logique avec les composants classe
+// Ancienne logique avec les 'componant class'
 // class Card extends Component {
 
 //      // Le constructor me permet d'accéder à mes props
@@ -37,7 +36,7 @@ function Card({ label, title, picture }) {
 //      }
 
 //      render() {
-//           // Je récupère mes props en destructurant 'this.props
+//           // Je récupère mes props en destructurant 'this.props'
 //           const { theme, label, picture, title} = this.props
 //           return (
 //                <CardWrapper

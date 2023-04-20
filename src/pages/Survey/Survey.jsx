@@ -15,7 +15,7 @@ import {
 } from './surveyStyle';
 
 function Survey() {
-     // Ancien stte du call api
+     // Ancien méthode du call api
      // const [isDataLoading, setIsDataLoading] = useState(false);
      // const [surveyData, setSurveyData] = useState({});
 
@@ -41,7 +41,7 @@ function Survey() {
      //                const response = await fetch(
      //                     `http://localhost:8000/survey`
      //                );
-     //                // surveyData est une propriété de l'objet qui est retourné donc il faut destricturé avec les {}.
+     //                // surveyData est une propriété de l'objet qui est retournée donc il faut destructurer avec les {}.
      //                const { surveyData } = await response.json();
      //                setSurveyData(surveyData);
      //           } catch (error) {
@@ -56,14 +56,14 @@ function Survey() {
 
      const { questionNumber } = useParams();
      const questionNumberInt = parseInt(questionNumber);
-     // Si ma question actuel est égale à 1 alors je ne eut pas revenir en arrière et donc je renvoie '1' sion je reviens à la question précédente.
+     // Si ma question actuelle est égale à 1 alors je ne peux pas revenir en arrière et donc je renvoie '1' sinon je reviens à la question précédente.
      const prevQuestionNumber =
           questionNumberInt === 1 ? 1 : questionNumberInt - 1;
      const nextQuestionNumber = questionNumberInt + 1;
      const { theme } = useTheme();
      const { answers, saveAnswers } = useContext(SurveyContext);
 
-     // 3 - Méthode à mettre en place pour faire un appel Api avec mon hook personnalisé useFetch dispo dans 'utils/Hook/Hooks' :
+     // 3 - Méthode à mettre en place pour faire un appel Api avec mon hook personnalisé 'useFetch' dispo dans 'utils/Hook/Hooks' :
 
      function saveReply(answer) {
           saveAnswers({ [questionNumber]: answer });

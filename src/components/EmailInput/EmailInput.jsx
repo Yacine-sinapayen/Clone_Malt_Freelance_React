@@ -1,4 +1,4 @@
-// ce composant va être un exempled e l'ancinne syntaxe react avec les class component
+// Ce composant va être un exemple de l'ancienne syntaxe react avec les 'class component'
 import { useState } from 'react';
 import { InputWrapper, StyledLabel, StyledInput } from './emailInputStyle';
 

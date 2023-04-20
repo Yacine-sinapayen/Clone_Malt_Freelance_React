@@ -29,7 +29,7 @@ export default function index() {
       <ErrorTitle>Oups...</ErrorTitle>
       <Illustration src={ErrorImg} />
       <ErrorSubtitle>
-        Il semblerait que la page que vous cherchez n’existe pas
+        Il semblerait que la page que vous cherchez n’existe pas.
       </ErrorSubtitle>
     </ErrorWrapper>
   )

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { createContext } from 'react';
 
-// Je créais un context pour gérer le DarkMode
+// Je créais un context pour gérer le DarkMode.
 
 export const ThemeContext = createContext();
 
@@ -18,7 +18,7 @@ export const ThemeProvider = ({ children }) => {
      );
 };
 
-// Je créais un context pour ércupérer et sauvegarder mes réponses au questionnaire.
+// Je créais un context pour récupérer et sauvegarder mes réponses au questionnaire.
 export const SurveyContext = createContext();
 
 export const SurveyProvider = ({ children }) => {

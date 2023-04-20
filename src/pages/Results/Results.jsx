@@ -5,10 +5,10 @@ import { StyledLink, Loader } from '../../utils/style/Atoms';
 import { ResultsContainer, ResultsTitle, DescriptionWrapper, JobTitle, JobDescription, LoaderWrapper } from './resultsStyle';
 import EmptyList from '../../components/EmptyList/EmptyList';
 
-/* Cette fonction va récupérer la réponse renvoyer par l'api et va la formater afin de l'afficher comme nous le souhaitons :
-1 - je récupère l'objet 'answers
-2 - Ensuite j'itère dessus avec un reduce qui va passer sur les clès de notre objet. En params je récupère le string pécédente (previousParams) et le numéro de la réponse :
-     2.a - S'il s'ajit de la première réponse on rajoute un espace sinon on rajoute un '&' */
+/* Cette fonction va récupérer la réponse renvoyée par l'api et va la formater afin de l'afficher comme nous le souhaitons :
+1 - Je récupère l'objet 'answers'
+2 - Ensuite j'itère dessus avec un 'reduce' qui va passer sur les clés de notre objet. En params je récupère le 'string' pécédent (previousParams) et le numéro de la réponse :
+     2.a - S'il s'agit de la première réponse on rajoute un espace sinon on rajoute un '&' */
 export function formatQueryParams(answers) {
      // 1
      const answerNumbers = Object.keys(answers);
@@ -17,7 +17,7 @@ export function formatQueryParams(answers) {
           const isFirstParam = index === 0;
           // 2.a
           const separator = isFirstParam ? '' : '&';
-          // je récupère cette data dans mon usefetch plus bas.
+          // Je récupère cette data dans mon 'usefetch' plus bas.
           return `${previousParams}${separator}a${answerNumber}=${answers[answerNumber]}`;
      }, '');
 }
@@ -36,7 +36,7 @@ function Results() {
      const { theme } = useTheme();
      console.log(fetchParams);
 
-     /* Le hook custum 'useFetch' me permet de faire l'appel à l'api et fetchParams correspond à mes réponses.*/
+     /* Le hook custum 'useFetch' me permet de faire l'appel à l'api et 'fetchParams' correspond à mes réponses.*/
      const { data, isLoading, error } = useFetch(
           `http://localhost:8000/results?${fetchParams}`
      );

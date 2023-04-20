@@ -16,9 +16,9 @@ describe('La fonction formatJobList', () => {
      });
 });
 
-// Dans ce test je veux valider le format de deux éléments en entrée et sortie de ma fonction 'formatQueryParams' dans mon composant results :
-// 1 - 'answers' qui est l'objet reçu par ma fonction en entrée. Ça correspond aux réponses du questionnaire de l'utilisateur
-// 2 -  et 'fetchParams' qui est la const dans laquelle je stock ce que ma fonction 'formatQueryParams' me renvoie en sortie.
+// Dans ce test je veux valider le format de deux éléments en entrée et sortie de ma fonction 'formatQueryParams' dans mon composant 'results' :
+// 1 - 'answers' qui est l'objet reçu par ma fonction en entrée. Ça correspond aux réponses du questionnaire de l'utilisateur.
+// 2 -  ...et 'fetchParams' qui est la const dans laquelle je stock ce que ma fonction 'formatQueryParams' me renvoie en sortie.
 
 describe('The formatQueryParams function', () => {
      it('should use the right format for param', () => {
@@ -46,9 +46,9 @@ const resultsMockedData = [
 ];
 
 /* 
-1 - Je met en place ma const 'server' qui va intercepter l'appel à l'api. 
+1 - Je mets en place ma const 'server' qui va intercepter l'appel à l'api. 
 
-2 - je défini le comportement de mon server avant les event, après chaque event, après tout les event.
+2 - Je définis le comportement de mon server avant les event, après chaque event, après tout les event.
 
 */
 
